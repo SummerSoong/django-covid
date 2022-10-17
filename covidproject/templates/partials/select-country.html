@@ -1,0 +1,11 @@
+<div class="container">
+	<form method="post" action="statistics" class="d-flex justify-content-center align-items-center">
+		{% csrf_token %}
+		<select name="selectedcountry" class="form-control" onChange="this.form.submit();" >
+			<option value="" disabled selected>Select a country</option>
+			{% for country in country_list %}
+			<option>{{country}}</option>
+			{% endfor %}
+		</select>
+	</form>
+</div>

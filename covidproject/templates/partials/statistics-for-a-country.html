@@ -1,0 +1,23 @@
+<div class="container">
+	<h3 class="text-center">{{country}}</h1>
+		<div class="d-flex justify-content-center align-items-center">
+			{% for name, value in details1.items%}
+			<div class="card" style="height: 100px;width:200px">
+				<div class="card-body">
+					<h6 class="card-title text-center"> {{name}} </h6>
+					<p class="card-text text-center"> {{value}} </p>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		<div class="d-flex justify-content-center align-items-center">
+			{% for name, value in details2.items%}
+			<div class="card" style="height: 100px;width:200px">
+				<div class="card-body">
+					<h6 class="card-title text-center"> {{name}} </h6>
+					<p class="card-text text-center"> {{value}} </p>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+</div>

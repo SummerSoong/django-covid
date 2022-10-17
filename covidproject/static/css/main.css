@@ -1,0 +1,6 @@
+.landing-page {
+	height: 90vh;
+	background: url("/static/images/covid.jpeg");
+	background-size: cover;
+}
+
