@@ -3,22 +3,19 @@
 
 {% include 'partials/navbar.html' %}
 
-<div class="container mt-5">
+<div class="container mt-3">
 	<div class="row">
 		<div class="col-12 col-lg-6">
-			<div class="search-bar">
+			<div class="mt-3">
 				{% include 'partials/select-country.html' %}
 			</div>
-			<div class="mt-5">
+			<div class="mt-3">
 				{% include 'partials/statistics-for-a-country.html' %}
 			</div>
-
 		</div>
-		<div class="col-12 col-lg-6">
-			<div class="display-map">
-				{{map | safe}}
-			</div>
 
+		<div class="col-12 col-lg-6 mt-3">
+			{{map | safe}}
 		</div>
 	</div>
 </div>

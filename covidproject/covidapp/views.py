@@ -4,34 +4,29 @@ import requests
 import folium
 import geocoder
 from django.core.mail import send_mail, BadHeaderError
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse
 from .forms import ContactForm
 from covidproject import local_settings
 
-# Create your views here.
 def home(request):
-	country_list = sorted(list_countries())
-	context = {'country_list': country_list}
-	return render(request, 'home.html', context)
+	return render(request, 'home.html')
 
 def statistics(request):
 	country_list = list_countries()
 	map = folium.Map(location=[19,-12], zoom_start=2)
 	map = map._repr_html_()
-	if request.method == "GET":
-		results = fetch_data("World")
-		context = {'details1': results[0], 'details2': results[1], "country_list": country_list, 'map': map, 'country': "World"}
-		return render(request, 'statistics.html', context)
-	elif request.method == "POST":
+	if request.method == "POST":
 		selected_country = request.POST['selectedcountry']
 		if not selected_country == "World":
 			map = mark_map(selected_country)
 		results = fetch_data(selected_country)
 		context = {'details1': results[0], 'details2': results[1], "country_list": country_list, 'map': map, 'country': selected_country}
 		return render(request, 'statistics.html', context)
+	else:
+		results = fetch_data("World")
+		context = {'details1': results[0], 'details2': results[1], "country_list": country_list, 'map': map, 'country': "World"}
+		return render(request, 'statistics.html', context)
 
-	context = {'country_list': country_list, 'map': map}
-	return render(request, 'statistics.html', context)
 
 def contact(request):
     if request.method == "GET":
@@ -47,7 +42,7 @@ def contact(request):
             except BadHeaderError:
                 return HttpResponse("Invalid header found.")
             return redirect("/home")
-    return render(request, "email.html", {"form": form})
+    return render(request, "contact.html", {"form": form})
 
 def redirect_to_home(request):
 	return redirect("/home")
