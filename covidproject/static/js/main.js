@@ -1,4 +1,4 @@
-
+// mark the navbar items when it is active 
 document.addEventListener("DOMContentLoaded", function (event) {
 	const currentPath = this.location.pathname;
 	const navLinks = document.getElementsByClassName('nav-link')

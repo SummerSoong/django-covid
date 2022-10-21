@@ -125,5 +125,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# send email settings with sendgrid
 EMAIL_BACKEND = "sgbackend.SendGridBackend"
 SENDGRID_API_KEY = SENDGRID_API_KEY

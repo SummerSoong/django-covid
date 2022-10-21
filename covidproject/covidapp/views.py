@@ -19,7 +19,7 @@ def statistics(request):
 	# map
 	map = folium.Map(location=[19,-12], zoom_start=2)
 	map = map._repr_html_()
-	# if a country is posed, return covid data and map with mark
+	# if a country is posted, return covid data and map with mark
 	if request.method == "POST":
 		selected_country = request.POST['selectedcountry']
 		if not selected_country == "World":
@@ -60,9 +60,9 @@ def redirect_to_home(request):
 def list_countries():
 	url = "https://covid-19.dataflowkit.com/v1"
 	response = requests.request("GET", url).json()
-	# delete the latest update date
+	# delete the latest update date from country_list
 	response.pop()
-	# delete the first one "World"
+	# delete the first one "World" from country_list
 	response.pop(0)
 	country_list = []
 	# save the country text to country_list
