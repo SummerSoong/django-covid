@@ -5,18 +5,33 @@
 
 <div class="container mt-3">
 	<div class="row">
+
+		<!-- left side -->
 		<div class="col-12 col-lg-6">
+
+			<!-- selection bar for country -->
 			<div class="mt-3">
 				{% include 'partials/select-country.html' %}
 			</div>
+			<!-- end of selection bar for country -->
+
+			<!-- display the covid data for one country or world -->
 			<div class="mt-3">
 				{% include 'partials/statistics-for-a-country.html' %}
 			</div>
-		</div>
+			<!-- end of display the covid data for one country or world -->
 
+		</div>
+		<!-- end of left side -->
+
+		<!-- right side -->
+		<!-- display map -->
 		<div class="col-12 col-lg-6 mt-3">
 			{{map | safe}}
 		</div>
+		<!-- end of display map -->
+		<!-- end of display map -->
+
 	</div>
 </div>
 
