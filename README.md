@@ -17,7 +17,24 @@ form, in case a user wants to ask for an inquiry. <br />
 
 # building on local environment
     
-    **go to covidproject folder**
+    # go to covidproject folder
+    cd covidproject
+    
+    # create and activate virtual environment
+    python3 -m venv venv
+    source venv/bin/activate
+    
+    # install packages
+    pip3 install django django-widget-tweaks requests folium geocoder sendgrid-django
+    
+    # run server
+    python3 manage.py runserver
+    
+    # open your browser and go to http://127.0.0.1:8000`
+
+# building on Docker
+    
+    # go to covidproject folder
     cd covidproject
     
     # create and activate virtual environment
